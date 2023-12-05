@@ -1,5 +1,6 @@
 package com.atguigu.service;
 
+import com.atguigu.dto.User;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,4 +10,5 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface UserService {
+    public Object saveToRedis(User user);
 }
