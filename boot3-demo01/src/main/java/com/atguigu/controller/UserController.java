@@ -3,7 +3,6 @@ package com.atguigu.controller;
 import com.atguigu.dto.User;
 import com.atguigu.service.UserService;
 import jakarta.annotation.Resource;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,16 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class UserController {
-
-    @Resource
-    private RedisTemplate redisTemplate;
-
     @Resource
     private UserService userService;
 
     @PostMapping("/save")
-    public void save(@RequestBody User user){
-        
+    public String save(@RequestBody User user) {
+        Boolean isTrue = userService.saveToRedis(user);
+        return isTrue ? "成功" : "失败";
     }
 
 }

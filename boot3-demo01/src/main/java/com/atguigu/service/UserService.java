@@ -10,5 +10,5 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface UserService {
-    public Object saveToRedis(User user);
+    public Boolean saveToRedis(User user);
 }
