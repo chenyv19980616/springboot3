@@ -1,22 +1,38 @@
 package com.atguigu.dto;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
- * @author : chenyv
- * @description : 员工DTO
- * @since : 2023-12-08 00:55
+ * @TableName employees
  */
+@TableName(value ="employees")
 @Data
-public class Employee {
+public class Employee implements Serializable {
+    private Integer employeeId;
 
-    /**
-     * 姓名
-     */
-    private String name;
+    private String firstName;
 
-    /**
-     * 年龄
-     */
-    private Integer age;
+    private String lastName;
+
+    private String email;
+
+    private String phoneNumber;
+
+    private Date hireDate;
+
+    private String jobId;
+
+    private Double salary;
+
+    private Double commissionPct;
+
+    private Integer managerId;
+
+    private Integer departmentId;
+
+    private static final long serialVersionUID = 1L;
 }

@@ -3,11 +3,11 @@ package com.atguigu.service;
 import com.atguigu.dto.Employee;
 
 /**
- * @author : chenyv
- * @description : 服务层
- * @since : 2023-12-05 21:20
- */
-public interface EmployeeService {
+* @author chenyv
+* @description 针对表【employees】的数据库操作Service
+* @createDate 2023-12-08 01:13:03
+*/
+public interface EmployeeService{
 
-    public Boolean saveToRedis(Employee employee);
+    Boolean saveToRedis(Employee employee);
 }
