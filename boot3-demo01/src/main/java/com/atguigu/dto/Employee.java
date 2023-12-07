@@ -4,11 +4,11 @@ import lombok.Data;
 
 /**
  * @author : chenyv
- * @description :用户
- * @since : 2023-12-05 21:25
+ * @description : 员工DTO
+ * @since : 2023-12-08 00:55
  */
 @Data
-public class User {
+public class Employee {
 
     /**
      * 姓名
