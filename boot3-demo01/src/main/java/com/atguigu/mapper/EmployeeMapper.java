@@ -14,6 +14,11 @@ import java.util.List;
 @Mapper
 public interface EmployeeMapper {
 
+    /**
+     * 查询所有员工
+     * @param employee
+     * @return
+     */
     List<Employee> queryEmployeeList(Employee employee);
 }
 
