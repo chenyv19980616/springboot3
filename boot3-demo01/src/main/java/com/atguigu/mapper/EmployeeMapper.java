@@ -1,16 +1,20 @@
 package com.atguigu.mapper;
 
 import com.atguigu.dto.Employee;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
 * @author chenyv
 * @description 针对表【employees】的数据库操作Mapper
-* @createDate 2023-12-08 01:13:03
+* @createDate 2023-12-08 02:15:19
 * @Entity com.atguigu.dto.Employee
 */
-public interface EmployeeMapper extends BaseMapper<Employee> {
+@Mapper
+public interface EmployeeMapper {
 
+    List<Employee> queryEmployeeList(Employee employee);
 }
 
 

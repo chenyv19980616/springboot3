@@ -2,6 +2,8 @@ package com.atguigu.service;
 
 import com.atguigu.dto.Employee;
 
+import java.util.List;
+
 /**
 * @author chenyv
 * @description 针对表【employees】的数据库操作Service
@@ -9,5 +11,10 @@ import com.atguigu.dto.Employee;
 */
 public interface EmployeeService{
 
-    Boolean saveToRedis(Employee employee);
+    /**
+     * 查询所有员工
+     * @param employee
+     * @return
+     */
+    List<Employee> queryEmployeeList(Employee employee);
 }

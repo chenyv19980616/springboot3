@@ -1,17 +1,19 @@
 package com.atguigu.dto;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
+ * @author chenyv
  * @TableName employees
  */
-@TableName(value ="employees")
 @Data
 public class Employee implements Serializable {
+    @Serial
+    private static final long serialVersionUID = -2750863933864511982L;
     private Integer employeeId;
 
     private String firstName;
@@ -34,5 +36,4 @@ public class Employee implements Serializable {
 
     private Integer departmentId;
 
-    private static final long serialVersionUID = 1L;
 }

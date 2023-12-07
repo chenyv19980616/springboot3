@@ -1,8 +1,12 @@
 package com.atguigu.service.impl;
 
 import com.atguigu.dto.Employee;
+import com.atguigu.mapper.EmployeeMapper;
 import com.atguigu.service.EmployeeService;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
 * @author chenyv
@@ -11,9 +15,19 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
+
+    @Resource
+    private EmployeeMapper employeeMapper;
+
     @Override
-    public Boolean saveToRedis(Employee employee) {
-        return null;
+    public List<Employee> queryEmployeeList(Employee employee) {
+        List<Employee> employeeList = null;
+        try {
+            employeeList = employeeMapper.queryEmployeeList(employee);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return employeeList;
     }
 }
 

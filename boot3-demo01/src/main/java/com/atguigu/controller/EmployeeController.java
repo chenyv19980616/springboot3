@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @author : chenyv
  * @description : 表现层
@@ -17,10 +19,9 @@ public class EmployeeController {
     @Resource
     private EmployeeService employeeService;
 
-    @PostMapping("/save")
-    public String save(@RequestBody Employee employee) {
-        Boolean isTrue = employeeService.saveToRedis(employee);
-        return isTrue ? "成功" : "失败";
+    @PostMapping("/query")
+    public List<Employee> query(@RequestBody Employee employee) {
+        return employeeService.queryEmployeeList(employee);
     }
 
 }
