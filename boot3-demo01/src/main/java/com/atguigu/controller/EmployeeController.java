@@ -19,9 +19,14 @@ public class EmployeeController {
     @Resource
     private EmployeeService employeeService;
 
-    @PostMapping("/query")
-    public List<Employee> query(@RequestBody Employee employee) {
+    @PostMapping("/queryEmployees")
+    public List<Employee> queryEmployees(@RequestBody Employee employee) {
         return employeeService.queryEmployeeList(employee);
+    }
+
+    @PostMapping("/queryDepartment")
+    public List<Employee> queryDepartment(@RequestBody Employee employee) {
+        return null;
     }
 
 }
