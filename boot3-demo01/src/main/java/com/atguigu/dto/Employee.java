@@ -13,7 +13,7 @@ import java.util.Date;
 @Data
 public class Employee implements Serializable {
     @Serial
-    private static final long serialVersionUID = -2750863933864511982L;
+    private static final long serialVersionUID = -3345469171007835089L;
     private Integer employeeId;
 
     private String firstName;

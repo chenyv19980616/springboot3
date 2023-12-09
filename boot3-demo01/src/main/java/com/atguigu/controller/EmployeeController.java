@@ -3,9 +3,9 @@ package com.atguigu.controller;
 import com.atguigu.dto.Employee;
 import com.atguigu.service.EmployeeService;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,6 +16,10 @@ import java.util.List;
  */
 @RestController
 public class EmployeeController {
+
+    @Autowired
+    private RedisTemplate redisTemplate;
+
     @Resource
     private EmployeeService employeeService;
 
@@ -27,6 +31,18 @@ public class EmployeeController {
     @PostMapping("/queryDepartment")
     public List<Employee> queryDepartment(@RequestBody Employee employee) {
         return null;
+    }
+
+    @GetMapping("/get/{key}")
+    public Object get(@PathVariable String key){
+        return redisTemplate.opsForValue().get(key);
+    }
+
+    @PostMapping("/set/{key}/{value}")
+    public String set(@PathVariable String key,
+                      @PathVariable String value) {
+        redisTemplate.opsForValue().set(key, value);
+        return "success！";
     }
 
 }

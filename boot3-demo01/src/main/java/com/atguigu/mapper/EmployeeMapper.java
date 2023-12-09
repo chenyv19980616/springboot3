@@ -1,7 +1,6 @@
 package com.atguigu.mapper;
 
 import com.atguigu.dto.Employee;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -11,7 +10,6 @@ import java.util.List;
 * @createDate 2023-12-08 02:15:19
 * @Entity com.atguigu.dto.Employee
 */
-@Mapper
 public interface EmployeeMapper {
 
     /**
