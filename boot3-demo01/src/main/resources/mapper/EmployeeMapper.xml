@@ -35,6 +35,18 @@
     <select id="queryEmployeeList" resultType="com.atguigu.dto.Employee">
         select
         <include refid="base_column_cist"/>
-        from employees;
+        from employees
+        limit 1,10;
+    </select>
+
+    <select id="getById" resultType="com.atguigu.dto.Employee">
+        select
+        <include refid="base_column_cist"/>
+        from employees
+        <where>
+            <if test="id != null">
+                employee_id = #{id}
+            </if>
+        </where>
     </select>
 </mapper>

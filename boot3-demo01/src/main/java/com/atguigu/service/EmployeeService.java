@@ -17,4 +17,6 @@ public interface EmployeeService{
      * @return
      */
     List<Employee> queryEmployeeList(Employee employee);
+
+    Object getById(Integer id);
 }

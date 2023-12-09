@@ -1,6 +1,7 @@
 package com.atguigu.mapper;
 
 import com.atguigu.dto.Employee;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -18,6 +19,8 @@ public interface EmployeeMapper {
      * @return
      */
     List<Employee> queryEmployeeList(Employee employee);
+
+    Employee getById(@Param("id") Integer id);
 }
 
 

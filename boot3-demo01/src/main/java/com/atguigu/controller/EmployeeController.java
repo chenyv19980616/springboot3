@@ -3,7 +3,6 @@ package com.atguigu.controller;
 import com.atguigu.dto.Employee;
 import com.atguigu.service.EmployeeService;
 import jakarta.annotation.Resource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,8 +16,8 @@ import java.util.List;
 @RestController
 public class EmployeeController {
 
-    @Autowired
-    private RedisTemplate redisTemplate;
+    @Resource
+    private RedisTemplate<String, Object> redisTemplate;
 
     @Resource
     private EmployeeService employeeService;
@@ -43,6 +42,11 @@ public class EmployeeController {
                       @PathVariable String value) {
         redisTemplate.opsForValue().set(key, value);
         return "success！";
+    }
+
+    @GetMapping("/getEmp/{id}")
+    public Object getEmp(@PathVariable("id") Integer id) {
+        return employeeService.getById(id);
     }
 
 }
