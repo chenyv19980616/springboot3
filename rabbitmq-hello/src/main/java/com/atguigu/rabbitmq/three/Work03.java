@@ -18,11 +18,14 @@ public class Work03 {
         Channel channel = RabbitMqUtils.getChannel();
         System.err.println("C2等待接受消息，时间较长！");
 
+        //设置为：1 不公平分发
+        channel.basicQos(1);
+
         //消费
         channel.basicConsume(TASK_QUEUE_NAME, false,
                 (consumerTag, message) -> {
                     //睡一秒
-                    SleepUtils.sleep(30);
+                    SleepUtils.sleep(10);
                     System.err.println("接收到的消息：" + new String(message.getBody(), StandardCharsets.UTF_8));
                     channel.basicAck(message.getEnvelope().getDeliveryTag(),false);
                 },

@@ -18,6 +18,9 @@ public class Work02 {
         Channel channel = RabbitMqUtils.getChannel();
         System.err.println("C1等待接受消息，时间较短！");
 
+        //设置为：1 不公平分发
+        channel.basicQos(1);
+
         //消费
         channel.basicConsume(TASK_QUEUE_NAME, false,
                 (consumerTag, message) -> {
