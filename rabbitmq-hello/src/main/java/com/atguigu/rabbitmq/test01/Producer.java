@@ -1,4 +1,4 @@
-package com.atguigu.rabbitmq.one;
+package com.atguigu.rabbitmq.test01;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
