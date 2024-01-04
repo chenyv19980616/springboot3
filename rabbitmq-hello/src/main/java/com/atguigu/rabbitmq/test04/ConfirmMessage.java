@@ -91,10 +91,10 @@ public class ConfirmMessage {
 
         //准备消息监听器
         ConfirmCallback ackCallback = (deliveryTag, multiple) -> {
-            System.out.println("确认消息：" + deliveryTag);
+            //System.out.println("确认消息：" + deliveryTag);
         };
         ConfirmCallback nackCallback = (deliveryTag, multiple) -> {
-            System.out.println("未确认消息：" + deliveryTag);
+            //System.out.println("未确认消息：" + deliveryTag);
         };
 
         channel.addConfirmListener(ackCallback, nackCallback);
