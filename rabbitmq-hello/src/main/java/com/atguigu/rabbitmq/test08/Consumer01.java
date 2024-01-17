@@ -51,9 +51,9 @@ public class Consumer01 {
         arguments.put("x-dead-letter-routing-key", "lisi");
 
         // 声明普通队列
-        channel.queueDeclare(NORMAL_QUEUE, true, false, false, arguments);
+        channel.queueDeclare(NORMAL_QUEUE, false, false, false, arguments);
         // 声明死信队列
-        channel.queueDeclare(DEAD_QUEUE, true, false, false, null);
+        channel.queueDeclare(DEAD_QUEUE, false, false, false, null);
 
         // 绑定普通交换机和普通队列
         channel.queueBind(NORMAL_QUEUE, NORMAL_EXCHANGE, "zhangsan");
