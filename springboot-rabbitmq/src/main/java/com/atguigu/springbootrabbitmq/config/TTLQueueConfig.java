@@ -33,6 +33,10 @@ public class TTLQueueConfig {
      */
     public static final String QUEUE_B = "QB";
     /**
+     * 普通队列C
+     */
+    public static final String QUEUE_C = "QC";
+    /**
      * 死信队列
      */
     public static final String DEAD_LETTER_QUEUE = "QD";
@@ -88,6 +92,20 @@ public class TTLQueueConfig {
     }
 
     /**
+     * 声明普通队列C
+     * @return
+     */
+    @Bean("queueC")
+    public Queue queueC(){
+        Map<String, Object> arguments = new HashMap<>(2);
+        // 设置死信交换机
+        arguments.put("x-dead-letter-exchange", Y_DEAD_LETTER_EXCHANGE);
+        // 设置死信RoutingKey
+        arguments.put("x-dead-letter-routing-key", "YD");
+        return QueueBuilder.durable(QUEUE_C).withArguments(arguments).build();
+    }
+
+    /**
      * 声明死信队列
      * @return
      */
@@ -106,6 +124,12 @@ public class TTLQueueConfig {
     public Binding queueBBindingX(@Qualifier("queueB") Queue queueB,
                                  @Qualifier("xExchange") DirectExchange xExchange){
         return BindingBuilder.bind(queueB).to(xExchange).with("XB");
+    }
+
+    @Bean
+    public Binding queueCBindingX(@Qualifier("queueC") Queue queueC,
+                                  @Qualifier("xExchange") DirectExchange xExchange){
+        return BindingBuilder.bind(queueC).to(xExchange).with("XC");
     }
 
     @Bean
