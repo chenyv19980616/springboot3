@@ -20,7 +20,7 @@ public class ConfirmConfig {
      */
     public static final String CONFIRM_QUEUE_NAME = "confirm_queue";
     /**
-     *
+     * 路由键
      */
     public static final String CONFIRM_ROUTING_KEY = "key1";
 
