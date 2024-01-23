@@ -51,8 +51,8 @@ public class SendMsgController {
 
     /**
      * 发送延迟消息
-     * @param message
-     * @param ttlTime
+     * @param message 消息
+     * @param ttlTime 延迟时间
      */
     @GetMapping("/sendDelayMsg/{message}/{ttlTime}")
     public void sendDelayMsg(@PathVariable("message") String message, @PathVariable("ttlTime") Integer ttlTime) {
