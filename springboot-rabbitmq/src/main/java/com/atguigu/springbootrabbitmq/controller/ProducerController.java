@@ -24,8 +24,12 @@ public class ProducerController {
 
     @GetMapping("/sendMessage/{message}")
     public void sendMessage(@PathVariable("message") String message) {
-        CorrelationData correlationData = new CorrelationData("1");
-        rabbitTemplate.convertAndSend(ConfirmConfig.CONFIRM_EXCHANGE_NAME, ConfirmConfig.CONFIRM_ROUTING_KEY, message, correlationData);
+        CorrelationData correlationData1 = new CorrelationData("1");
+        rabbitTemplate.convertAndSend(ConfirmConfig.CONFIRM_EXCHANGE_NAME, ConfirmConfig.CONFIRM_ROUTING_KEY, message, correlationData1);
+        log.info("发送消息内容为：{}", message);
+
+        CorrelationData correlationData2 = new CorrelationData("2");
+        rabbitTemplate.convertAndSend(ConfirmConfig.CONFIRM_EXCHANGE_NAME, ConfirmConfig.CONFIRM_ROUTING_KEY + "2", message, correlationData2);
         log.info("发送消息内容为：{}", message);
     }
 }
