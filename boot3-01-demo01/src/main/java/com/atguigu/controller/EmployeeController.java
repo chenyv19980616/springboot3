@@ -3,6 +3,7 @@ package com.atguigu.controller;
 import com.atguigu.dto.Employee;
 import com.atguigu.service.EmployeeService;
 import jakarta.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,8 +20,19 @@ public class EmployeeController {
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
-    @Resource
-    private EmployeeService employeeService;
+    @Autowired
+    private static EmployeeService employeeService = new EmployeeService(){
+
+        @Override
+        public List<Employee> queryEmployeeList(Employee employee) {
+            return null;
+        }
+
+        @Override
+        public Object getById(Integer id) {
+            return null;
+        }
+    };
 
     @PostMapping("/queryEmployees")
     public List<Employee> queryEmployees(@RequestBody Employee employee) {
