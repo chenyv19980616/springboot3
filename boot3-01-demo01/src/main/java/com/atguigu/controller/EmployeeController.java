@@ -21,18 +21,7 @@ public class EmployeeController {
     private RedisTemplate<String, Object> redisTemplate;
 
     @Autowired
-    private static EmployeeService employeeService = new EmployeeService(){
-
-        @Override
-        public List<Employee> queryEmployeeList(Employee employee) {
-            return null;
-        }
-
-        @Override
-        public Object getById(Integer id) {
-            return null;
-        }
-    };
+    private EmployeeService employeeService;
 
     @PostMapping("/queryEmployees")
     public List<Employee> queryEmployees(@RequestBody Employee employee) {
