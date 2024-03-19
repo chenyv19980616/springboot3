@@ -7,7 +7,7 @@ import lombok.Data;
  * @since :  2024-03-08 10:41:07
  **/
 @Data
-public class TUser {
+public class Employee {
     private Long id;
     private String loginName;
     private String nickName;
