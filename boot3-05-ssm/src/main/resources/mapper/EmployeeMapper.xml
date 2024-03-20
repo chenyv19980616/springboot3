@@ -10,6 +10,14 @@
 
     <select id="getEmployees" resultType="com.atguigu.boot3.ssm.bean.Employee">
         select * from employees
+        <where>
+            <if test="req.hireDate != null">
+                hire_date >= #{req.hireDate}
+            </if>
+            <if test="req.firstName != null and req.firstName != ''">
+                first_name like CONCAT(${req.firstName},'%')
+            </if>
+        </where>
         limit ${(req.pageIndex - 1) * req.pageSize },#{req.pageSize};
     </select>
 </mapper>
