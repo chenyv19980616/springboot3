@@ -1,9 +1,11 @@
 package com.atguigu.boot3.ssm.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author : chenyv
@@ -29,4 +31,7 @@ public class EmpReq implements Serializable {
      * 分页数据大小
      */
     private Integer pageSize = 10;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date hireDate;
 }
