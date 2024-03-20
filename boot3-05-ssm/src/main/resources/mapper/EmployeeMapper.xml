@@ -3,6 +3,13 @@
 <mapper namespace="com.atguigu.boot3.ssm.mapper.EmployeeMapper">
 
     <select id="getEmployeeById" resultType="com.atguigu.boot3.ssm.bean.Employee">
-        select * from employees where employee_id = #{id}
+        select *
+        from employees
+        where employee_id = #{id}
+    </select>
+
+    <select id="getEmployees" resultType="com.atguigu.boot3.ssm.bean.Employee">
+        select * from employees
+        limit ${(req.pageIndex - 1) * req.pageSize },#{req.pageSize};
     </select>
 </mapper>
