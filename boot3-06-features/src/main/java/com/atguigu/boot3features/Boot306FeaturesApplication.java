@@ -5,7 +5,6 @@ import com.atguigu.boot3features.bean.Child;
 import com.atguigu.boot3features.bean.Dog;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
-import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -29,7 +28,7 @@ public class Boot306FeaturesApplication {
 		ConfigurableApplicationContext applicationContext = new SpringApplicationBuilder()
 				.main(Boot306FeaturesApplication.class)
 				.sources(Boot306FeaturesApplication.class)
-				.bannerMode(Banner.Mode.OFF)
+				// .bannerMode(Banner.Mode.OFF)
 				.run(args);
 
 		try {
