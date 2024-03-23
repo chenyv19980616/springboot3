@@ -6,7 +6,7 @@ package com.atguigu.boot3features.service;
  */
 public interface TestService {
 
-    Integer test01();
+    Integer calculate(int a, int b);
 
     default Integer sum(Integer x, Integer y) {
         return x + y;
