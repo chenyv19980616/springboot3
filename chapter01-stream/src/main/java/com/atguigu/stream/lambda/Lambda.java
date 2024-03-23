@@ -1,4 +1,4 @@
-package com.atguigu.lambda;
+package com.atguigu.stream.lambda;
 
 import java.util.ArrayList;
 import java.util.Collections;
