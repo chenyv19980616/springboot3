@@ -8,8 +8,13 @@ public class ThreadDemo02 {
     public static void main(String[] args) {
         MyRunnable myRun = new MyRunnable();
 
-        Thread thread = new Thread(myRun);
+        Thread t1 = new Thread(myRun);
+        Thread t2 = new Thread(myRun);
 
-        thread.start();
+        t1.setName("t1");
+        t2.setName("t2");
+
+        t1.start();
+        t2.start();
     }
 }
