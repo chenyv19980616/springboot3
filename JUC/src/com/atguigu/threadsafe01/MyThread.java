@@ -8,20 +8,25 @@ public class MyThread extends Thread {
 
     static int tickets = 0;
 
+    static Object obj = new Object();
+
     @Override
     public void run() {
         while (true) {
-            if (tickets < 100) {
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+            // 同步代码块
+            synchronized (obj){
+                if (tickets < 100) {
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
 
-                tickets++;
-                System.out.println(getName() + "正在卖第" + tickets + "张票！");
-            } else {
-                break;
+                    tickets++;
+                    System.out.println(getName() + "正在卖第" + tickets + "张票！");
+                } else {
+                    break;
+                }
             }
         }
     }
