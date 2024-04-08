@@ -8,13 +8,11 @@ public class MyThread extends Thread {
 
     static int tickets = 0;
 
-    static Object obj = new Object();
-
     @Override
     public void run() {
         while (true) {
             // 同步代码块
-            synchronized (obj){
+            synchronized (MyThread.class) {
                 if (tickets < 100) {
                     try {
                         Thread.sleep(10);
