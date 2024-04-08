@@ -11,6 +11,9 @@ public class ThreadMethodDemo {
 
         t1.start();
         t2.start();
+
+        System.out.println(t1.getPriority());
+        System.out.println(t2.getPriority());
         // String name = Thread.currentThread().getName();
         // System.out.println("name = " + name);
         // System.out.println("++++++++++++++++++++");
