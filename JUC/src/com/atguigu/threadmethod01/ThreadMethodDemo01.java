@@ -1,10 +1,10 @@
-package com.atguigu.threadmethod;
+package com.atguigu.threadmethod01;
 
 /**
  * @author : chenyv
  * @since : 2024-04-08 20:49
  */
-public class ThreadMethodDemo {
+public class ThreadMethodDemo01 {
     public static void main(String[] args) throws Exception {
         MyThread t1 = new MyThread("飞机");
         MyThread t2 = new MyThread("坦克");

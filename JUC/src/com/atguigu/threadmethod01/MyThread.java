@@ -1,4 +1,4 @@
-package com.atguigu.threadmethod;
+package com.atguigu.threadmethod01;
 
 /**
  * @author : chenyv
