@@ -1,4 +1,4 @@
-package com.atguigu.waitnotify;
+package com.atguigu.waitnotify01;
 
 /**
  * @author : chenyv
