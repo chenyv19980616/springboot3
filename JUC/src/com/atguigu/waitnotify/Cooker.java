@@ -12,7 +12,17 @@ public class Cooker extends Thread {
                 if (Desk.count == 0) {
                     break;
                 } else {
-
+                    if (Desk.foodFlag == 1) {
+                        try {
+                            Desk.lock.wait();
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                    } else {
+                        System.out.println("厨师做了一碗面条！");
+                        Desk.foodFlag = 1;
+                        Desk.lock.notifyAll();
+                    }
                 }
             }
         }
