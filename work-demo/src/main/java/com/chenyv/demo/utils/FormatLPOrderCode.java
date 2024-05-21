@@ -1,3 +1,5 @@
+package com.chenyv.demo.utils;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
