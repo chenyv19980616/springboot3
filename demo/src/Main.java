@@ -24,9 +24,13 @@ public class Main {
              BufferedWriter writer = Files.newBufferedWriter(outputPath, StandardOpenOption.CREATE)) {
 
             String trackingNumber;
+            int a = 0;
             while ((trackingNumber = reader.readLine()) != null) {
+                if (a++ != 0) {
+                    writer.write(",\n");
+                }
                 // 创建格式化的跟踪号码
-                String formatted = "\"" + trackingNumber + "\",\n";
+                String formatted = "\"" + trackingNumber + "\"";
                 // 写入到输出文件
                 writer.write(formatted);
             }
