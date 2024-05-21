@@ -16,8 +16,8 @@ public class FormatLPOrderCode {
         System.out.println(System.getProperty("user.dir"));
 
         // 相对路径
-        String inputFile = "work-demo/src/shuru.txt"; // 输入文件名
-        String outputFile = "work-demo/src/shuchu.txt"; // 输出文件名
+        String inputFile = "work-demo/src/shuru.txt";
+        String outputFile = "work-demo/src/shuchu.txt";
 
         Path inputPath = Paths.get(inputFile);
         Path outputPath = Paths.get(outputFile);
