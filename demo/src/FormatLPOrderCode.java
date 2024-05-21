@@ -9,7 +9,7 @@ import java.nio.file.StandardOpenOption;
 /**
  * 读取txt文件
  */
-public class Main {
+public class FormatLPOrderCode {
     public static void main(String[] args) {
         System.out.println(System.getProperty("user.dir"));
 
@@ -23,14 +23,14 @@ public class Main {
         try (BufferedReader reader = Files.newBufferedReader(inputPath);
              BufferedWriter writer = Files.newBufferedWriter(outputPath, StandardOpenOption.CREATE)) {
 
-            String trackingNumber;
+            String lpOrderCode;
             int a = 0;
-            while ((trackingNumber = reader.readLine()) != null) {
+            while ((lpOrderCode = reader.readLine()) != null) {
                 if (a++ != 0) {
                     writer.write(",\n");
                 }
                 // 创建格式化的跟踪号码
-                String formatted = "\"" + trackingNumber + "\"";
+                String formatted = "\"" + lpOrderCode + "\"";
                 // 写入到输出文件
                 writer.write(formatted);
             }
